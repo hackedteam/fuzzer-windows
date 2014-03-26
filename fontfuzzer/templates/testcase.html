@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+{% module CssModule(fonts, instanceId, folder) %}
+
+
+<script>
+{{ 'var maxTestCases = {};'.format(len(fonts)) }}
+
+var currentTestCase = 0;
+var interVar;
+
+function changeFont() {
+
+        fontFamilyName = "testing";
+        console.log('Call function: ' +currentTestCase + ' style: ' + fontFamilyName + currentTestCase);
+        paras = document.getElementsByTagName("p");
+
+
+        for( j=0; j < paras.length; j++ ) {
+                style = fontFamilyName + currentTestCase ;
+                paras[j].style.fontFamily = style;
+        }
+        currentTestCase += 1;
+        
+        if( currentTestCase > maxTestCases) {
+                console.log('Removing timer');
+                clearInterval(interVar);
+
+        
+        }
+}
+
+function fire() {
+        
+        interVar = setInterval( changeFont, 1000);
+}
+
+</script>
+</head>
+<body onload=fire();>
+
+
+{% for i in range(1, 100) %}
+
+<style>
+{{ 'p.z{}'.format(i) }}{
+font-family: testing0;
+{{'font-size: {}px'.format(i)}}
+}
+</style>
+<p class="{{ 'z{}'.format(i) }}" id="{{ 'i{}'.format(i) }}">
+!"#$%\&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+</p>
+{% end %}
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Manage communication with fuzzing agents</title>
+    
+    <script>
+      function convertURLAdd() {
+	  var ip = document.getElementsByName("agentIp")[0].value;
+	  var agent = document.getElementsByName("agentName")[0].value;
+	  document.newAgent.action = "/communication/agents/" +  ip + '/' + agent;  
+	  
+      }
+      
+      function manageAgentHandler() {
+	  var ips = document.getElementById("agentIpManage").getElementsByTagName("input");
+          for( var i = 0 ; i < ips.length; i++ ) {
+	      if( ips[i].checked) 
+		  var ip = ips[i];
+	  }
+
+          url = "/communication/agents/" +  ip.value +  "/capabilities";  
+          document.location.href = url;
+	  
+      }
+    </script>
+  </head>
+<body>
+
+
+Connect a new fuzzing agent:
+<form action="" name="newAgent" method="post" onSubmit="convertURLAdd()">
+  Agent Ip<input type="value" name="agentIp" value="127.0.0.1">
+  <br>
+  Agent name<input type="value" name="agentName" value="Agent Name">
+  <br>
+  <input type="submit" value="Add Agent">
+</form>
+
+<br>
+Manage an agent:<br>
+<fieldset id="agentIpManage">
+  {% for a in agents  %}
+  <input type="radio" name="agentIp" value="{{ a }}">{{ a }}</br>
+  {% end %}
+</fieldset>
+<input type="submit" value="Manage agent" onclick="manageAgentHandler()">
+
+
+</body>
+</html>

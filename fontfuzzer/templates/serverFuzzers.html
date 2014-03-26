@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Fuzzers management  </title>
+
+    <script>
+      function convertURL() {
+
+
+	  var selectedAgents = new Array();
+	  var agents = document.getElementById("agents").getElementsByTagName("input");
+          for( var i = 0; i < agents.length; i++ ) {
+	      if( agents[i].checked )
+		  selectedAgents.push( agents[i].value );
+	  }
+
+      	  var fuzzers = document.getElementById("fuzzers").getElementsByTagName("input");
+          for( var i = 0; i < fuzzers.length; i++ ) {
+	      if( fuzzers[i].checked ) 
+		  var selectedFuzzer = fuzzers[i];
+	  }
+
+	  xmlhttp = new XMLHttpRequest();
+	  xmlhttp.onreadystatechange=function()
+	  {
+	      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	      {
+		  document.getElementById('agentResponse').innerHTML += "<br>" + xmlhttp.responseText;
+	      }
+	  }
+	  
+	  
+	  url =  "http://127.0.01:81/fuzzers/" +  selectedFuzzer.value ;
+	  
+	  xmlhttp.open("POST", url ,"true");
+	  xmlhttp.send(JSON.stringify(selectedAgents));
+
+
+      }
+    </script>
+
+  </head>
+  <body>
+    
+    
+  Agents:
+  <br>
+    <fieldset id="agents">
+      {% for a in agents %}
+      <input type="checkbox" name="agent" value="{{ a }}">{{ a }}</br>
+      {% end %} 
+    </fieldset>
+
+    <fieldset id="fuzzers">
+      {% for f in fuzzers %}
+      <input type="radio" name="fuzzersFolder" value="{{ f }}">{{ f }}</br>
+      {% end %} 
+    </fieldset>
+
+    <input type="submit" value="Send fuzzers" onclick="convertURL()">
+
+    <br><br>
+    <div id="agentResponse"></div>
+
+
+  </body>
+</html>

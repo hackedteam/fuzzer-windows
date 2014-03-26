@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Assign fonts to agents</title>
+    
+    <script>
+      function convertURL() {
+
+
+	  var agents = document.getElementsByName("agent");
+          for( var i = 0; i < agents.length; i++ ) {
+	      if( agents[i].checked )
+		  var selectedAgent = agents[i];
+	      
+	  }
+
+      	  var fonts = document.getElementsByName("fontsFolder");
+          for( var i = 0; i < fonts.length; i++ ) {
+	      if( fonts[i].checked )
+		  var selectedFont = fonts[i];
+
+	  }
+
+	  document.assignFont.action = "/communication/fonts/" +  selectedFont.value + "/" + selectedAgent.value;
+	  
+      }
+    </script>
+  </head>
+<body>
+    
+
+  Agents:
+  <form action="" name="assignFont" method="post" onSubmit="convertURL()">
+
+    <fieldset id="agents">
+      {% for a in agents %}
+      <input type="radio" name="agent" value="{{ a }}">{{ a }}</br>
+      {% end %} 
+    </fieldset>
+
+    <fieldset id="folders">
+      {% for f in fontsFolder %}
+      <input type="radio" name="fontsFolder" value="{{ f }}">{{ f }}</br>
+      {% end %} 
+    </fieldset>
+
+
+    <input type="submit" value="Send fonts">
+  </form>
+
+</body>
+</html>

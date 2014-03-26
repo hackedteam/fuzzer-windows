@@ -1,0 +1,38 @@
+'''
+For fuzzing framework
+'''
+class MockFuzzer(threading.Thread):
+    
+    def __init__(self, folder):
+        self.fontsFolder = folder
+        self.stopMe = False
+
+   
+    def run(self, fontsFolder):
+    
+        while not self.stopMe:
+        
+            # 2] generate test cases
+            numberOfTestCases = generateTestCases(self.fontsFolder)
+        
+            print '[*] Generated {} test cases'.format(numberOfTestCases)
+        
+
+            for i in os.listdir('testcases'):
+                m = hashlib.md5()
+                m.update(open('testcases' + '\\' + i, "rb").read())
+                print '[*]\t {} : {}'.format(i, m.hexdigest())
+                            
+            # 3] deploy
+            viewerDeploy()
+
+    def stop(self):
+        self.stopMe = True        
+        
+    
+    def getDescription(self):
+        return 'Native fuzzer'
+
+
+def getFuzzerInstance():
+    return NativeFuzzer()

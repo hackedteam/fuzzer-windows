@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Dashboard</title>
+    <script>
+  
+      {% for a in agents %}
+      var source_{{a.replace('.', '_')}} = new EventSource("http://{{a}}/dashboard/");
+      source_{{a.replace('.', '_')}}.onmessage = function (event) {
+
+        console.log(event.data);
+	
+        obj = JSON.parse(event.data);        
+        
+        console.log(obj);
+	document.getElementById("{{a.replace('.', '_')}}_atime").innerHTML = obj.timeNow;
+	document.getElementById("{{a.replace('.', '_')}}_foname").innerHTML = obj.fontName;
+	document.getElementById("{{a.replace('.', '_')}}_funame").innerHTML = obj.fuzzerName || '';	
+	document.getElementById("{{a.replace('.', '_')}}_bchanged").innerHTML = obj.bytesChanged || '';
+	document.getElementById("{{a.replace('.', '_')}}_crend").innerHTML = obj.charsRendered || '';
+	document.getElementById("{{a.replace('.', '_')}}_cnrend").innerHTML = obj.charsNotRendered || '';
+	document.getElementById("{{a.replace('.', '_')}}_ctime").innerHTML = obj.creationTime || '';
+	document.getElementById("{{a.replace('.', '_')}}_rtime").innerHTML = obj.renderTime || '';
+      };
+            
+      
+      {% end %}
+    
+    </script>
+  </head>
+  <body>
+    
+    Paired Agents:
+    <br>
+    
+
+      <table id="agentsGroup" cellspacing="12">
+	<tr><th>Ip</th><th>Agent time</th><th>Font</th><th>Fuzzer</th><th>Number of changes</th><th>Chars Rendered</th><th>Chars Not Rendered</th><th>Creation Time</th><th>Render Time</th></tr>
+	{% for a in agents %} 
+	    <tr>
+	    <td id="{{a.replace('.', '_')}}_ip">{{ a }}</td>
+	    <td id="{{a.replace('.', '_')}}_atime">N/A</td>
+	    <td id="{{a.replace('.', '_')}}_foname"></td>
+    	    <td id="{{a.replace('.', '_')}}_funame"></td>
+	    <td id="{{a.replace('.', '_')}}_bchanged"></td>
+	    <td id="{{a.replace('.', '_')}}_crend"></td>
+	    <td id="{{a.replace('.', '_')}}_cnrend"></td>
+	    <td id="{{a.replace('.', '_')}}_ctime"></td>
+	    <td id="{{a.replace('.', '_')}}_rtime"></td>
+	    </tr>
+	{% end %}
+     </table>
+
+  </body>
+</html>

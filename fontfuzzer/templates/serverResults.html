@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Results</title>
+    <script>
+  
+	function getResults() {
+	  
+	  var date = document.getElementById("after").value;
+	  
+	  if( date == '') {
+	    alert('No date selected');
+	    return false;
+	  }
+	  
+	  
+	  var agents = document.getElementById("agentsGroup").getElementsByTagName("input");
+          for( var i = 0; i < agents.length; i++ ) {
+	      if( agents[i].checked )
+		  var selectedAgent = agents[i];
+	      
+	  }
+
+	  if( selectedAgent == null ) {
+	      alert('No agent selected');
+	      return false;
+	  }
+	
+	
+	
+	  xmlhttp = new XMLHttpRequest();
+	  xmlhttp.onreadystatechange=function()
+	  {
+	      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	      {
+		  var message = "Agent results<br>";
+		  json = xmlhttp.responseText;
+		  obj = JSON.parse(json);
+		  
+		  message = "<table id=\"results\" cellspacing=\"12\">";
+		  message += "<tr><th>Font name   </th><th>Fuzzer   </th><th>Bytes changed   </th><th>Chars rendered   </th><th>Chars not rendered   </th><th>Date   </th></tr>";
+		  for(var i = 0 ; i < obj.results.length; i++) {
+		      message += "<tr><td>"+ obj.results[i][0] + "</td><td>"+ obj.results[i][1] + "</td><td>" + obj.results[i][2] + "</td><td>"+ obj.results[i][3] + "</td><td>" + obj.results[i][4]+ "</td><td>" + obj.results[i][5]+ "</td></tr>";
+		      
+		  }
+		  
+		  message += "</table>";
+
+		  document.getElementById('agentResponse').innerHTML = message ;
+	      }
+	  }
+	  
+	  
+	  url = "http://" + selectedAgent.value + "/results/" + date;
+	  xmlhttp.open("GET", url ,"true");
+	  xmlhttp.send();
+
+      }
+
+    </script>
+  </head>
+  <body>
+
+    Results
+    <br>
+    
+
+      <fieldset id="agentsGroup">
+	{% for a in agents %} 
+	<input type="radio" name="agent" value="{{ a }}">{{ a }}</br>
+	{% end %}
+     </fieldset>
+
+     Results after: <input type="date" id="after">
+     <input type="submit" value="Get results" onclick="getResults()">
+    <br>
+     <div id="agentResponse"></div>
+  </body>
+</html>

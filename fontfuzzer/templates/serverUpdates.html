@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Updates</title>
+    <script>
+    var xmlhttp = new Array();
+    var xmlhttp2 = new Array();
+    var printed;
+
+	function getUpdates() {
+          printed = new Array();
+          document.getElementById('agentResponse').innerHTML = "Messages:<br>";
+	    
+	  var selectedAgents = new Array();
+	  var agents = document.getElementById("agentsGroup").getElementsByTagName("input");
+          for( var i = 0; i < agents.length; i++ ) {
+	      if( agents[i].checked )
+		  selectedAgents.push( agents[i].value );
+	      
+	  }
+
+	  if( selectedAgents.length == 0 ) {
+	      alert('No agent selected');
+	      return false;
+	  }
+		
+
+	  for( var i = 0; i < selectedAgents.length; i++ ) {
+               
+              xmlhttp.push( new XMLHttpRequest() );
+	      xmlhttp[i].source = selectedAgents[i];
+	      xmlhttp[i].onreadystatechange = function()  {
+		  
+              for(var j = 0; j < xmlhttp.length; j++) {
+                if (xmlhttp[j].readyState==4 && xmlhttp[j].status==200 && ( printed.indexOf(xmlhttp[j].source) == -1 ) )   {
+     	         document.getElementById('agentResponse').innerHTML += (xmlhttp[j].source + ": " + xmlhttp[j].responseText + "<br>") ;
+		 printed.push( xmlhttp[j].source);
+		  }
+		  }
+		
+	      }
+	  	  
+    	      url = "http://" + selectedAgents[i] + "/updates/" ;
+	      xmlhttp[i].open("GET", url ,"false");
+	      xmlhttp[i].send();
+          } 
+        }
+
+
+	function sendUpdates() {
+          printed = new Array();
+          document.getElementById('agentResponse').innerHTML = "Messages:<br>";
+
+	  var selectedAgents = new Array();
+	  var agents = document.getElementById("agentsGroup").getElementsByTagName("input");
+          for( var i = 0; i < agents.length; i++ ) {
+	      if( agents[i].checked )
+		  selectedAgents.push( agents[i].value );
+	      
+	  }
+
+	  if( selectedAgents.length == 0 ) {
+	      alert('No agent selected');
+	      return false;
+	  }
+	
+	  for( var i = 0; i < selectedAgents.length; i++ ) {
+
+  	      xmlhttp2.push(new XMLHttpRequest());
+	      xmlhttp2[i].source = selectedAgents[i];
+	      xmlhttp2[i].onreadystatechange=function()    {
+
+      	      for( var j = 0 ; j < xmlhttp2.length; j++ ) { 
+		  if (xmlhttp2[j].readyState==4 && xmlhttp2[j].status==200 && ( printed.indexOf(xmlhttp2[j].responseText) == -1 ))   {
+		      console.log(xmlhttp2[j].responseText);
+		      printed.push( xmlhttp2[j].responseText );
+   		      document.getElementById('agentResponse').innerHTML += (xmlhttp2[j].responseText + "<br>") ; 
+	     }
+	      }
+              }
+	  	  
+    	    url = "http://127.0.0.1:81/updates/" ;
+	    xmlhttp2[i].open("POST", url ,"true");
+	    
+	    xmlhttp2[i].send(JSON.stringify(selectedAgents));
+          
+          }
+	}
+  
+    </script>
+  </head>
+  <body>
+
+    Updates
+    <br>
+    
+
+     <fieldset id="agentsGroup">
+	{% for a in agents %} 
+	<input type="checkbox" name="agent" value="{{ a }}">{{ a }}</br>
+	{% end %}
+     </fieldset>
+
+
+     <input type="submit" value="Send updates packages" onclick="sendUpdates()">
+     <br>
+     <input type="submit" value="Get updates info" onclick="getUpdates()">
+     <br>     
+     
+    <div id="agentResponse">Messages:<br></div>
+  </body>
+</html>

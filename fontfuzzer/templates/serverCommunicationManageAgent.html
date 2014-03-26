@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Agent {{ ip }} management  </title>
+    <script>
+
+      // 1] POST: start a job
+      // 2] DELETE: stop the job
+      // 3] GET: get job list
+	  
+
+      function startJob() {
+
+
+	  //var selectedFuzzer = "mockFuzzer" // DELETE ME
+	  var fuzzers = document.getElementById("fuzzers").getElementsByTagName("input");
+          for( var i = 0; i < fuzzers.length; i++ ) {
+	      if( fuzzers[i].checked )
+		  var selectedFuzzer = fuzzers[i];
+	      
+	  }
+
+	  if( selectedFuzzer == null ) {
+	      alert('No fuzzer selected');
+	      return false;
+	  }
+
+	  //var selectedFont = "mockFontFolder" // DELETE ME
+      	  var fonts = document.getElementById("fontFolder").getElementsByTagName("input");
+	  for( var i = 0; i < fonts.length; i++ ) {
+	      if( fonts[i].checked )
+		  var selectedFont = fonts[i];
+	  }
+
+
+	  if( selectedFont == null ) {
+	      alert('No fonts folder selected');
+	      return false;
+	  }
+
+	  url = "http://{{ip}}/communication/jobs/" + selectedFuzzer.value + "/" + selectedFont.value;
+
+	  xmlhttp = new XMLHttpRequest();
+	  xmlhttp.onreadystatechange=function()
+	  {
+	      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	      {
+		  document.getElementById('agentResponse').innerHTML = "Agent {{ip}} says:<br>" + xmlhttp.responseText;
+	      }
+	  }
+	  
+	  xmlhttp.open("POST", url ,"true");
+	  xmlhttp.send();
+ 
+      }
+
+      function stopJob() {
+	  
+	  var jobId = document.getElementById("jobId").value;
+	  
+	  url = "http://{{ip}}/communication/jobs/" + jobId;
+
+	  xmlhttp = new XMLHttpRequest();
+	  xmlhttp.onreadystatechange=function()
+	  {
+	      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	      {
+		  document.getElementById('agentResponse').innerHTML = "Agent {{ip}} says:<br>" + xmlhttp.responseText;
+	      }
+	  }
+
+	  xmlhttp.open("DELETE", url ,"true");
+	  xmlhttp.send();
+
+      }
+
+      function getJobList() {
+	  
+	  url = "http://{{ip}}/communication/jobs/list" ;
+
+	  xmlhttp = new XMLHttpRequest();
+	  xmlhttp.onreadystatechange=function()
+	  {
+	      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	      {
+		  var message = "Job list<br>";
+		  json = xmlhttp.responseText;
+		  obj = JSON.parse(json);
+		 
+		  for(var i = 0 ; i < obj.length; i++) {
+		      message += 'id: ' + obj[i]['id'] + ' fuzzer: ' + obj[i]['fuzzer'] + ' folder: ' + obj[i]['folder'] + '<br>';
+		      
+		  }
+
+		  document.getElementById('agentResponse').innerHTML = message ;
+	      }
+	  }
+	  
+	  xmlhttp.open("GET", url ,"true");
+	  xmlhttp.send();
+
+      }
+
+    </script>
+  </head>
+  <body>
+
+    Agent {{ ip }}:
+    <br>
+    
+
+      <fieldset id="fontFolder">
+	{% for f in fontsFolder %} 
+	<input type="radio" name="folder" value="{{ f }}">{{ f }}</br>
+	{% end %}
+     </fieldset>
+
+      <fieldset id="fuzzers">
+	{% for f in fuzzers %} 
+	<input type="radio" name="fuzzer" value="{{ f }}">{{ f }}</br>
+	{% end %}
+     </fieldset>
+
+     <input type="submit" value="Start job" onclick="startJob()">
+    <br>
+     <input type="text"  id="jobId" value="Job id">
+     <input type="submit" value="Stop job"  onclick="stopJob()">
+     <br>
+    <input type="submit" value="List running jobs"  onclick="getJobList()">
+     <br>
+     <div id="agentResponse"></div>
+  </body>
+</html>
