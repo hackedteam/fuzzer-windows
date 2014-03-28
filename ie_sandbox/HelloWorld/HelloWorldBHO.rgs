@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {FD574140-1377-453D-8E6E-374B86CECA67} = s 'HelloWorldBHO Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{FC847ACD-BCBD-404E-B244-F7232F8E7DEF}'
+			Version = s '1.0'
+		}
+	}
+}

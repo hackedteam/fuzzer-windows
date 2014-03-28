@@ -1,0 +1,11 @@
+import psutil
+
+for i in psutil.process_iter():
+        print "as"
+
+
+
+
+    '''if i.name == "iexplore.exe":
+        if i.parent != "iexplore.exe":
+            print i.pid'''

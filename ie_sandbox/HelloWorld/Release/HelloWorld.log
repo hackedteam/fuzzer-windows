@@ -1,0 +1,94 @@
+﻿Build started 12/9/2013 9:34:43 AM.
+Project "C:\Users\diego\documents\visual studio 2010\Projects\HelloWorld\HelloWorld\HelloWorld.vcxproj" on node 2 (rebuild target(s)).
+_PrepareForClean:
+  Deleting file "Release\HelloWorld.lastbuildstate".
+InitializeBuildStatus:
+  Creating "Release\HelloWorld.unsuccessfulbuild" because "AlwaysCreate" was specified.
+Midl:
+  c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\midl.exe /D NDEBUG /W1 /nologo /char signed /env win32 /Oicf /h "HelloWorld_i.h" /iid "HelloWorld_i.c" /proxy "HelloWorld_p.c" /tlb "Release\HelloWorld.tlb" /robust HelloWorld.idl 
+  HelloWorld.idl
+  oaidl.idl
+  objidl.idl
+  unknwn.idl
+  Processing .\HelloWorld.idl
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\oaidl.idl
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\objidl.idl
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\unknwn.idl
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\wtypes.idl
+  wtypes.idl
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\basetsd.h
+  basetsd.h
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\guiddef.h
+  guiddef.h
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\ocidl.idl
+  ocidl.idl
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\oleidl.idl
+  oleidl.idl
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\servprov.idl
+  servprov.idl
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\urlmon.idl
+  urlmon.idl
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\msxml.idl
+  msxml.idl
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\oaidl.acf
+  oaidl.acf
+  Processing c:\Program Files\Microsoft SDKs\Windows\v7.0A\include\ocidl.acf
+  ocidl.acf
+ClCompile:
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D _USRDLL /D _WINDLL /D _UNICODE /D UNICODE /D _ATL_DLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\HelloWorld.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+  stdafx.cpp
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D _USRDLL /D _WINDLL /D _UNICODE /D UNICODE /D _ATL_DLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\HelloWorld.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt broker.cpp HelloWorld.cpp HelloWorldBHO.cpp hook.cpp log.cpp
+  broker.cpp
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(16): warning C4091: 'typedef ' : ignored on left of 'tagProxyResolveUrl' when no variable is declared
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(103): warning C4138: '*/' found outside of comment
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(103): warning C4138: '*/' found outside of comment
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(105): warning C4138: '*/' found outside of comment
+  HelloWorld.cpp
+  HelloWorldBHO.cpp
+  hook.cpp
+  log.cpp
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(16): warning C4091: 'typedef ' : ignored on left of 'tagProxyResolveUrl' when no variable is declared
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(103): warning C4138: '*/' found outside of comment
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(103): warning C4138: '*/' found outside of comment
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(105): warning C4138: '*/' found outside of comment
+  Generating Code...
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D _USRDLL /D _WINDLL /D _UNICODE /D UNICODE /D _ATL_DLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp
+  dllmain.cpp
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(16): warning C4091: 'typedef ' : ignored on left of 'tagProxyResolveUrl' when no variable is declared
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(103): warning C4138: '*/' found outside of comment
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(103): warning C4138: '*/' found outside of comment
+c:\users\diego\documents\visual studio 2010\projects\helloworld\helloworld\broker.h(105): warning C4138: '*/' found outside of comment
+dllmain.cpp(4063): warning C4305: 'initializing' : truncation from 'int' to 'const unsigned short'
+dllmain.cpp(4063): warning C4309: 'initializing' : truncation of constant value
+dllmain.cpp(3955): warning C4101: 'm_hWnd' : unreferenced local variable
+dllmain.cpp(3956): warning C4101: 'hState' : unreferenced local variable
+dllmain.cpp(3957): warning C4101: 'pwszSelectedFilename' : unreferenced local variable
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D _USRDLL /D _WINDLL /D _UNICODE /D UNICODE /D _ATL_DLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt HelloWorld_i.c
+  HelloWorld_i.c
+ResourceCompile:
+  c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D NDEBUG /D _UNICODE /D UNICODE /l"0x0409" /IRelease\ /nologo /fo"Release\HelloWorld.res" HelloWorld.rc 
+Link:
+  c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\diego\documents\visual studio 2010\Projects\HelloWorld\Release\HelloWorld.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:".\HelloWorld.def" /MANIFEST /ManifestFile:"Release\HelloWorld.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\diego\documents\visual studio 2010\Projects\HelloWorld\Release\HelloWorld.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /DLL Release\HelloWorld.res
+  Release\broker.obj
+  Release\dllmain.obj
+  Release\HelloWorld.obj
+  Release\HelloWorldBHO.obj
+  Release\HelloWorld_i.obj
+  Release\hook.obj
+  Release\log.obj
+  Release\stdafx.obj
+  "..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Windows\v7.1\Lib\iepmapi.lib"
+     Creating library C:\Users\diego\documents\visual studio 2010\Projects\HelloWorld\Release\HelloWorld.lib and object C:\Users\diego\documents\visual studio 2010\Projects\HelloWorld\Release\HelloWorld.exp
+  HelloWorld.vcxproj -> C:\Users\diego\documents\visual studio 2010\Projects\HelloWorld\Release\HelloWorld.dll
+Manifest:
+  c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\diego\documents\visual studio 2010\Projects\HelloWorld\Release\HelloWorld.dll;#2" /manifest Release\HelloWorld.dll.intermediate.manifest
+RegisterOutput:
+  regsvr32 /s "C:\Users\diego\documents\visual studio 2010\Projects\HelloWorld\Release\HelloWorld.dll"
+FinalizeBuildStatus:
+  Deleting file "Release\HelloWorld.unsuccessfulbuild".
+  Touching "Release\HelloWorld.lastbuildstate".
+Done Building Project "C:\Users\diego\documents\visual studio 2010\Projects\HelloWorld\HelloWorld\HelloWorld.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:16.88

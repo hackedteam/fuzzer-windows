@@ -1,0 +1,259 @@
+
+
+FUNCTIONS FOR iebrokerattach 
+
+
+void (*QueryInterface`adjustor{16}' )(HANDLE, _GUID const &,void * *);
+void (*AddRef`adjustor{16}' )(HANDLE, void);
+void (*Release`adjustor{16}' )(HANDLE, void);
+void (*AttachIEFrameToBroker)(HANDLE, IUnknown *);
+
+
+FUNCTIONS FOR shdocvw 
+
+
+void (*QueryInterface)(HANDLE, _GUID const &,void * *);
+void (*AddRef)(HANDLE, void);
+void (*Release)(HANDLE, void);
+void (*RedirectUrl)(HANDLE, unsigned short const *,unsigned long,_BROKER_REDIRECT_DETAIL *,IXMicTestMode *);
+void (*RedirectShortcut)(HANDLE, unsigned short const *,unsigned short const *,unsigned long,_BROKER_REDIRECT_DETAIL *);
+void (*RedirectUrlWithBindInfo)(HANDLE, _BROKER_BIND_INFO *,_BROKER_REDIRECT_DETAIL *,IXMicTestMode *);
+void (*ShowInternetOptions)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *,long,_ITEMIDLIST_ABSOLUTE * *,unsigned long,int *);
+void (*ShowInternetOptionsZones)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *);
+void (*ShowInternetOptionsLanguages)(HANDLE, HWND__ *);
+void (*ShowPopupManager)(HANDLE, HWND__ *,unsigned short const *);
+void (*ConfigurePopupExemption)(HANDLE, HWND__ *,int,unsigned short const *,int *);
+void (*ConfigurePopupMgr)(HANDLE, HWND__ *,int);
+void (*RemoveFirstHomePage)(HANDLE, void);
+void (*SetHomePage)(HANDLE, HWND__ *,long,_ITEMIDLIST_ABSOLUTE * *,long);
+void (*RemoveHomePage)(HANDLE, HWND__ *,int);
+void (*FixInternetSecurity)(HANDLE, HWND__ *,int *);
+void (*ShowManageAddons)(HANDLE, HWND__ *,unsigned long,_GUID *,unsigned int,int);
+void (*CacheExtFileVersion)(HANDLE, _GUID const &,unsigned short const *);
+void (*ShowAxApprovalDlg)(HANDLE, HWND__ *,_GUID const &,int,unsigned short const *,unsigned short const *,unsigned short const *);
+void (*SendLink)(HANDLE, _ITEMIDLIST_ABSOLUTE const *,unsigned short const *);
+void (*SendPage)(HANDLE, HWND__ *,IDataObject *);
+void (*NewMessage)(HANDLE, void);
+void (*ReadMail)(HANDLE, HWND__ *);
+void (*SetAsBackground)(HANDLE, unsigned short const *);
+void (*ShowSaveBrowseFile)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *,int,int,unsigned short * *,unsigned long *,unsigned long *);
+void (*SaveAsComplete)(HANDLE, void);
+void (*SaveAsFile)(HANDLE, void);
+void (*StartImportExportWizard)(HANDLE, int,HWND__ *);
+void (*EditWith)(HANDLE, HWND__ *,unsigned long,unsigned long,unsigned long,unsigned short const *,unsigned short const *,unsigned short const *);
+void (*ShowSaveImage)(HANDLE, HWND__ *,unsigned short const *,unsigned long,unsigned short * *);
+void (*SaveImage)(HANDLE, unsigned short const *);
+void (*CreateShortcutOnDesktop)(HANDLE, HWND__ *,_ITEMIDLIST_ABSOLUTE const *,unsigned short const *,IOleCommandTarget *);
+void (*ShowSynchronizeUI)(HANDLE, void);
+void (*OpenFolderAndSelectItem)(HANDLE, unsigned short const *);
+void (*DoGetOpenFileNameDialog)(HANDLE, _SOpenDlg *);
+void (*ShowSaveFileName)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *,unsigned short const *,unsigned short const *,unsigned int,unsigned short *,unsigned long,unsigned short const *,unsigned short * *);
+void (*SaveFile)(HANDLE, HWND__ *,unsigned int,unsigned long);
+void (*VerifyTrustAndExecute)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *);
+void (*GetFeedByUrl)(HANDLE, unsigned short const *,unsigned short * *);
+void (*BrokerAddToFavoritesEx)(HANDLE, HWND__ *,_ITEMIDLIST_ABSOLUTE const *,unsigned short const *,unsigned long,IOleCommandTarget *,unsigned short *,unsigned long,unsigned short const *);
+void (*Subscribe)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *,int,int,int);
+void (*MarkAllItemsRead)(HANDLE, unsigned short const *);
+void (*MarkItemsRead)(HANDLE, unsigned short const *,unsigned int *,unsigned int);
+void (*Properties)(HANDLE, HWND__ *,unsigned short const *);
+void (*DeleteFeedItem)(HANDLE, HWND__ *,unsigned short const *,unsigned int);
+void (*DeleteFeed)(HANDLE, HWND__ *,unsigned short const *);
+void (*DeleteFolder)(HANDLE, HWND__ *,unsigned short const *);
+void (*Refresh)(HANDLE, unsigned short const *);
+void (*MoveFeed)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *);
+void (*MoveFeedFolder)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *);
+void (*RenameFeed)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *);
+void (*RenameFeedFolder)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *);
+void (*NewFeedFolder)(HANDLE, unsigned short const *);
+void (*FeedRefreshAll)(HANDLE, void);
+void (*ShowFeedAuthDialog)(HANDLE, HWND__ *,unsigned short const *,tagFEEDTASKS_AUTHTYPE);
+void (*ShowAddSearchProvider)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *,int);
+void (*InitHKCUSearchScopesRegKey)(HANDLE, void);
+void (*DoShowDeleteBrowsingHistoryDialog)(HANDLE, HWND__ *);
+void (*ResetInternetOptions)(HANDLE, void);
+void (*StartAutoProxyDetection)(HANDLE, void);
+void (*ForceNexusLookup)(HANDLE, void);
+void (*SetAutoConnectOption)(HANDLE, unsigned short const *,unsigned long);
+void (*EditAntiPhishingOptinSetting)(HANDLE, HWND__ *,unsigned long,int *);
+void (*ShowMyPictures)(HANDLE, void);
+void (*ChangeIntranetSettings)(HANDLE, HWND__ *,int);
+void (*FixProtectedModeSettings)(HANDLE, void);
+void (*ShowAddService)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *,int);
+void (*ShowAddWebFilter)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *,unsigned short const *);
+void (*DoBrowserRegister)(HANDLE, IDispatch *,long,int,long *);
+void (*DoBrowserRevoke)(HANDLE, long);
+void (*DoOnNavigate)(HANDLE, long,tagVARIANT *);
+void (*AddDesktopComponent)(HANDLE, unsigned short *,unsigned short *,tagVARIANT *,tagVARIANT *,tagVARIANT *,tagVARIANT *);
+void (*DoOnCreated)(HANDLE, long,IUnknown *);
+void (*GetShellWindows)(HANDLE, IUnknown * *);
+void (*RestoreTab)(HANDLE, long,unsigned long,long);
+void (*SetPositionCookie)(HANDLE, unsigned long);
+void (*IsProtectedModeUrl)(HANDLE, unsigned short const *);
+void (*DoDiagnoseConnectionProblems)(HANDLE, HWND__ *,unsigned short *,unsigned short *);
+void (*PerformDoDragDrop)(HANDLE, HWND__ *,IEDataObjectWrapper *,IEDropSourceWrapper *,unsigned long,unsigned long,unsigned long *,long *);
+void (*TurnOnFeedSyncEngine)(HANDLE, HWND__ *);
+void (*InternetSetPerSiteCookieDecisionW)(HANDLE, unsigned short const *,unsigned long);
+void (*ConfirmCookie)(HANDLE, HWND__ *,unsigned long,unsigned long,_BROKER_COOKIE_DLG_INFO *);
+void (*SetAttachmentUserOverride)(HANDLE, unsigned short const *);
+void (*WriteClassesOfCategory)(HANDLE, _GUID const &,int);
+void (*BrokerSetFocus)(HANDLE, unsigned long,HWND__ *);
+void (*BrokerShellNotifyIconA)(HANDLE, unsigned long,_BROKER_NOTIFYICONDATAA *);
+void (*BrokerShellNotifyIconW)(HANDLE, unsigned long,_BROKER_NOTIFYICONDATAW *);
+void (*DisplayVirtualizedFolder)(HANDLE, void);
+void (*BrokerSetWindowPos)(HANDLE, HWND__ *,HWND__ *,int,int,int,int,unsigned int);
+void (*WriteUntrustedControlDetails)(HANDLE, _GUID const &,unsigned short const *,unsigned short const *,unsigned long,unsigned char *);
+void (*SetComponentDeclined)(HANDLE, char const *,char const *);
+void (*DoShowPrintDialog)(HANDLE, _BROKER_PRINTDLG *);
+void (*NavigateHomePages)(HANDLE, void);
+void (*ShowAxDomainApprovalDlg)(HANDLE, HWND__ *,_GUID const &,int,unsigned short const *,unsigned short const *,unsigned short const *,unsigned short const *);
+void (*ActivateExtensionFromCLSID)(HANDLE, HWND__ *,unsigned short const *,unsigned long,unsigned int,unsigned int);
+void (*BrokerCoCreateNewIEWindow)(HANDLE, unsigned long,_GUID const &,void * *,int,unsigned long);
+void (*BeginFakeModalityForwardingToTab)(HANDLE, HWND__ *,long);
+void (*BrokerEnableWindow)(HANDLE, int,int *);
+void (*EndFakeModalityForwardingToTab)(HANDLE, HWND__ *,long);
+void (*CloseOldTabIfFailed)(HANDLE, void);
+void (*GetGuidsForConnectedNetworks)(HANDLE, unsigned long *,unsigned short * * *,unsigned short * * *,unsigned short * * *,unsigned long *,unsigned long *);
+void (*EnableSuggestedSites)(HANDLE, HWND__ *,int);
+void (*SetProgressValue)(HANDLE, HWND__ *,unsigned long,unsigned long);
+void (*BrokerStartNewIESession)(HANDLE, void);
+void (*CompatDetachInputQueue)(HANDLE, HWND__ *);
+void (*CompatAttachInputQueue)(HANDLE, void);
+void (*SetToggleKeys)(HANDLE, unsigned long);
+void (*RepositionInfrontIE)(HANDLE, HWND__ *,int,int,int,int,unsigned int);
+void (*AddSessionIE7Rule)(HANDLE, unsigned short const *);
+void (*ReportShipAssert)(HANDLE, unsigned long,unsigned long,unsigned long,unsigned short const *,unsigned short const *,unsigned short const *);
+void (*AutoProxyGetProxyForUrl)(HANDLE, tagProxyResolveUrl *,tagProxyResult *);
+void (*AutoProxyReportRequestResults)(HANDLE, int,tagProxyResolveUrl *,tagProxyResult *);
+void (*ShowOpenSafeOpenDialog)(HANDLE, HWND__ *,_BROKER_SAFEOPENDLGPARAM *,unsigned int *,unsigned int *);
+void (*BrokerAddSiteToStartMenu)(HANDLE, HWND__ *,unsigned short *,unsigned short const *,long,unsigned long);
+void (*SiteModeAddThumbnailButton)(HANDLE, unsigned int *,HWND__ *,unsigned short *,unsigned short const *);
+void (*SiteModeAddButtonStyle)(HANDLE, int *,HWND__ *,unsigned int,unsigned short *,unsigned short const *);
+void (*IsSiteModeFirstRun)(HANDLE, int,unsigned short *);
+void (*BrokerDoSiteModeDragDrop)(HANDLE, unsigned long,long *,unsigned long *);
+void (*EnterUILock)(HANDLE, long);
+void (*LeaveUILock)(HANDLE, long);
+void (*`vector deleting destructor')(HANDLE, unsigned int);
+
+
+FUNCTIONS FOR ieaxinstall 
+
+
+void (*QueryInterface`adjustor{12}' )(HANDLE, _GUID const &,void * *);
+void (*AddRef`adjustor{12}' )(HANDLE, void);
+void (*Release`adjustor{12}' )(HANDLE, void);
+void (*BrokerGetAxInstallBroker)(HANDLE, _GUID const &,_GUID const &,HWND__ *,unsigned long,IUnknown * *);
+
+
+FUNCTIONS FOR stdidentity 
+
+
+void (*QueryInterface)(HANDLE, _GUID const &,void * *);
+void (*AddRef)(HANDLE, void);
+void (*Release)(HANDLE, void);
+void (*QueryInternalInterface)(HANDLE, _GUID const &,void * *);
+
+
+FUNCTIONS FOR protectedmodeAPI 
+
+
+void (*QueryInterface)(HANDLE, _GUID const &,void * *);
+void (*AddRef)(HANDLE, void);
+void (*Release)(HANDLE, void);
+void (*ShowSaveFileDialog)(HANDLE, HWND__ *,unsigned short const *,unsigned short const *,unsigned short const *,unsigned short const *,unsigned long,unsigned long,unsigned short * *);
+void (*SaveFileAs)(HANDLE, unsigned short const *);
+void (*RegCreateKeyExW)(HANDLE, unsigned long,unsigned short const *,unsigned long,unsigned long *,unsigned long *);
+void (*RegSetValueExW)(HANDLE, unsigned short const *,unsigned short const *,unsigned long,unsigned char const *,unsigned long);
+void (*`vector deleting destructor')(HANDLE, unsigned int);
+
+
+FUNCTIONS FOR ieuser 
+
+
+void (*QueryInterface)(HANDLE, _GUID const &,void * *);
+void (*AddRef)(HANDLE, void);
+void (*Release)(HANDLE, void);
+void (*Initialize)(HANDLE, HWND__ *,unsigned short const *,unsigned long *);
+void (*CreateProcessW)(HANDLE, unsigned long,unsigned short *,unsigned short *,unsigned long,unsigned long,unsigned char const *,unsigned short *,_BROKER_STARTUINFOEXW *,_PROCESS_INFORMATION *);
+void (*WinExec)(HANDLE, unsigned long,char const *,unsigned int,unsigned int *);
+void (*BrokerCreateKnownObject)(HANDLE, _GUID const &,_GUID const &,IUnknown * *);
+void (*BrokerCoCreateInstance)(HANDLE, unsigned long,_GUID const &,IUnknown *,unsigned long,_GUID const &,IUnknown * *);
+void (*BrokerCoCreateInstanceEx)(HANDLE, unsigned long,_GUID const &,IUnknown *,unsigned long,_COSERVERINFO *,unsigned long,tagBROKER_MULTI_QI *);
+void (*BrokerCoGetClassObject)(HANDLE, unsigned long,_GUID const &,unsigned long,_COSERVERINFO *,_GUID const &,IUnknown * *);
+
+
+FUNCTIONS FOR iereghelperbroker 
+
+
+void (*QueryInterface`adjustor{4}' )(HANDLE, _GUID const &,void * *);
+void (*AddRef`adjustor{4}' )(HANDLE, void);
+void (*Release`adjustor{4}' )(HANDLE, void);
+void (*DoDelSingleValue)(HANDLE, unsigned long);
+void (*DoDelIndexedValue)(HANDLE, unsigned long,unsigned long);
+void (*DoSetSingleValue)(HANDLE, unsigned long,unsigned char *,unsigned long);
+void (*DoSetIndexedValue)(HANDLE, unsigned long,unsigned long,unsigned char *,unsigned long);
+void (*Reduce)(HANDLE, IBindCtx *,unsigned long,IMoniker * *,IMoniker * *);
+void (*DoCreateKey)(HANDLE, unsigned long);
+
+
+FUNCTIONS FOR iereghelperobject 
+
+
+void (*QueryInterface`adjustor{8}' )(HANDLE, _GUID const &,void * *);
+void (*AddRef`adjustor{8}' )(HANDLE, void);
+void (*Release`adjustor{8}' )(HANDLE, void);
+void (*RegisterCleanup)(HANDLE, IEBrokerObjectCleanup *);
+
+
+FUNCTIONS FOR recoverystore 
+
+
+void (*QueryInterface)(HANDLE, _GUID const &,void * *);
+void (*AddRef)(HANDLE, void);
+void (*Release)(HANDLE, void);
+void (*Initialize)(HANDLE, unsigned long,__MIDL___MIDL_itf_recoverystore_0000_0006_0001,unsigned long,unsigned short const *);
+void (*InitializeFromFile)(HANDLE, unsigned short const *,__MIDL___MIDL_itf_recoverystore_0000_0006_0001,unsigned long);
+void (*CreateFrame)(HANDLE, unsigned int *,unsigned long,unsigned long);
+void (*CloseFrame)(HANDLE, unsigned int);
+void (*GetFrameCount)(HANDLE, unsigned int *);
+void (*GetFrameId)(HANDLE, unsigned int,unsigned int *);
+void (*GetFrameIESession)(HANDLE, unsigned int,unsigned long *,unsigned long *);
+void (*CreateTab)(HANDLE, unsigned int,unsigned short const *,ITabRecoveryData * *);
+void (*CloseTab)(HANDLE, unsigned int,_GUID const &);
+void (*GetTabCount)(HANDLE, unsigned int,unsigned int *);
+void (*GetTab)(HANDLE, unsigned int,unsigned int,ITabRecoveryData * *);
+void (*GetCount)(HANDLE, long *);
+void (*GetClosedTab)(HANDLE, _GUID const &,ITabRecoveryData * *);
+void (*DeleteClosedTab)(HANDLE, _GUID const &);
+void (*Recover)(HANDLE, ITabWindowManager *,unsigned long);
+void (*RecoverFrame)(HANDLE, ITabWindowManager *,unsigned long,unsigned int);
+void (*Flush)(HANDLE, void);
+void (*DeleteSelf)(HANDLE, void);
+void (*DeleteAllTabs)(HANDLE, void);
+void (*DeleteOnLastRelease)(HANDLE, void);
+void (*Shutdown)(HANDLE, void);
+void (*Restart)(HANDLE, void);
+void (*IsShutdown)(HANDLE, int *);
+void (*IsRestart)(HANDLE, int *);
+void (*GetID)(HANDLE, long *);
+void (*IsInPrivate)(HANDLE, int *);
+void (*IsExtOff)(HANDLE, int *);
+void (*GetFrameCLSID)(HANDLE, _GUID *);
+void (*SetActiveTab)(HANDLE, unsigned int,_GUID const &);
+void (*GetActiveTab)(HANDLE, unsigned int,_GUID *);
+void (*SwitchTabFrame)(HANDLE, unsigned int,unsigned int,_GUID const &);
+void (*DeleteExistingStores)(HANDLE, void);
+void (*FindCrashedSessions)(HANDLE, int *,int *);
+
+
+FUNCTIONS FOR settingsstore 
+
+
+void (*QueryInterface)(HANDLE, _GUID const &,void * *);
+void (*AddRef)(HANDLE, void);
+void (*Release)(HANDLE, void);
+void (*SetValue)(HANDLE, _GUID const &,int,int,unsigned char *,unsigned long);
+void (*SetExtValue)(HANDLE, _GUID const &,int,int,tagSAFEARRAY *,unsigned char *,unsigned long);
+void (*DeleteValue)(HANDLE, _GUID const &,int);
+void (*DeleteExtValue)(HANDLE, _GUID const &,int,tagSAFEARRAY *);
+void (*DeleteKey)(HANDLE, _GUID const &,int);
+void (*DeleteExtKey)(HANDLE, _GUID const &,int,tagSAFEARRAY *);

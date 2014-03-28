@@ -1,0 +1,32 @@
+
+
+FUNCTIONS FOR "shdocvw" : l1,
+    "recoverystore" : l2,
+    "settingsstore" : l3,
+    "ieuser" : l4,
+    "stdidentity" : l5,
+    "ieaxinstall" : l6,
+    "iereghelperbroker" : l7,
+    "iereghelperobject" : l8,
+    "iebrokerattach" : l9,
+    "protectedmodeAPI" : l0,shellwindow 
+
+
+void (*QueryInterface`adjustor{40}' )(HANDLE, _GUID const &,void * *);
+void (*AddRef`adjustor{40}' )(HANDLE, void);
+void (*Release`adjustor{40}' )(HANDLE, void);
+void (*get_alinkColor)(HANDLE, tagVARIANT *);
+void (*SetMenuSB)(HANDLE, HMENU__ *,void *,HWND__ *);
+void (*UpdateEntryEx)(HANDLE, IUnknown *,int,int,int,int);
+void (*Invoke)(HANDLE, long,_GUID const &,unsigned long,unsigned short,tagDISPPARAMS *,tagVARIANT *,tagEXCEPINFO *,unsigned int *);
+void (*get_alinkColor)(HANDLE, tagVARIANT *);
+void (*UpdateEntryEx)(HANDLE, IUnknown *,int,int,int,int);
+void (*SetSearchTerm)(HANDLE, unsigned short *);
+void (*Register)(HANDLE, IDispatch *,long,int,long *);
+void (*RegisterPending)(HANDLE, long,tagVARIANT *,tagVARIANT *,int,long *);
+void (*Revoke)(HANDLE, long);
+void (*AddEntry)(HANDLE, IUnknown *,int);
+void (*AddEntry)(HANDLE, IUnknown *,int);
+void (*FindWindowSW)(HANDLE, tagVARIANT *,tagVARIANT *,int,long *,int,IDispatch * *);
+void (*OnCreated)(HANDLE, long,IUnknown *);
+void (*get_alinkColor)(HANDLE, tagVARIANT *);
